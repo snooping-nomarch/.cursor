@@ -1,0 +1,26 @@
+---
+description: Navigation for the product-intent repository (goals, drivers, stakeholders, quality attributes, bounded contexts, capabilities).
+globs: **/product-intent/**
+alwaysApply: false
+---
+# product-intent
+
+Path: `documentation/product-intent/`. Entry file: `documentation/product-intent/index.md`. The repository has no root README.
+
+| Topic | SSOT |
+| ----- | ---- |
+| Tree of directories, IDs (`GOAL`, `DRV`, `SH`, `QA`, `CTX`, `CAP`), file names, role of `index.md` and `readme.md` | `playbook/workflow/product-intent-structure.md` |
+| Template of a capability | `playbook/templates/capability.md` |
+| Template of the `readme.md` of a bounded context | `playbook/templates/bounded-context-readme.md` |
+| Rule "one capability belongs to one bounded context" | `glossary/terms/bounded-context.md` (section "Обязательное правило") |
+| Terms | `glossary/terms/business-goal.md`, `business-driver.md`, `stakeholder.md`, `quality-attribute.md`, `bounded-context.md`, `capability.md` |
+| Problem and outcome before the solution | `playbook/principles/pos.md` |
+| Owners and review | `playbook/workflow/generic-git-flow.md` (PO, CPO; review and challenge) |
+
+Before you write a file, do these checks:
+
+1. Put the artifact in the directory for its type.
+2. Give the next free number to a new ID. Do not use a number again after a deletion.
+3. Do not describe a capability in the `readme.md` of a bounded context. Put only a link to it.
+4. Do not put links to architecture, specifications, or code. These layers are lower.
+5. Update the `index.md` of the parent directory in the same merge request.

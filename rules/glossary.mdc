@@ -1,0 +1,21 @@
+---
+description: Navigation for the glossary repository (terms of the platform language).
+globs: **/glossary/**
+alwaysApply: false
+---
+# glossary
+
+Path: `glossary/`. Entry file: `glossary/index.md`. Term files: `glossary/terms/<slug>.md`.
+
+| Topic | SSOT |
+| ----- | ---- |
+| When to add a term, how to add it, how to change it | `playbook/workflow/glossary.md` |
+| Template of a term | `playbook/templates/glossary-term.md` |
+| Owners and review | `playbook/workflow/generic-git-flow.md` (CTO, DM; review and challenge) |
+
+Before you write a file, do these checks:
+
+1. Find the word and its homonyms in `glossary/index.md`. Do not add a second entry for the same word.
+2. Use a slug in English, with lowercase letters and hyphens.
+3. Change the term file and its row in `glossary/index.md` in one change.
+4. In other documents, replace a local definition with a link to the term.

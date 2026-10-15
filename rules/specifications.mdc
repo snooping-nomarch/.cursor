@@ -1,0 +1,27 @@
+---
+description: Navigation for the specifications monorepo (REST OpenAPI, Kafka messages, algorithms of services, frontend conventions).
+globs: **/specifications/**
+alwaysApply: false
+---
+# specifications
+
+Path: `documentation/specifications/`. The repository has no root README. The structure is in the playbook.
+
+| Topic | SSOT |
+| ----- | ---- |
+| Tree of directories, files of a service directory, `readme.md` or `index.md`, branch rules | `playbook/workflow/specifications-structure.md` |
+| Why the contract is here and not in the code of a service | `playbook/principles/contract-first.md`, `playbook/principles/spec-first.md` |
+| Content of Kafka message schemas, required headers, consumer and producer code | `documentation/specifications/messaging/README.md` |
+| Common message components | `documentation/specifications/messaging/common-message.yaml` |
+| Common REST schemas | `documentation/specifications/microservices/common/` |
+| Platform decisions for REST, database, Kafka, codegen | rule `adr-topics` |
+| Notation of fields, types, and enum values | `playbook/principles/naming-and-notation.md` |
+| Owners and review | `playbook/workflow/generic-git-flow.md` (SA; AR must review) |
+
+Before you write a file, do these checks:
+
+1. Put message schemas only in `messaging/`. In a service directory, put a `$ref` to them.
+2. Use one `openapi.yaml` for each service.
+3. Do not copy platform REST conventions into a service specification. Put a link to the ADR.
+4. Write the specification as "how it must work in production". The `master` branch is the source of truth.
+5. Do not put links to code, schemas in `data-schemas/`, or Jira. These are lower layers.

@@ -1,0 +1,41 @@
+---
+description: Use this rule when you write or change a Cursor rule or skill in the .cursor repository.
+globs: **/.cursor/rules/**, **/rules/*.mdc
+alwaysApply: false
+---
+# Maintenance of the rules
+
+The rules in `.cursor/rules/` are an index. They tell an agent where to look and when.
+
+## Content
+
+1. Put a link to the SSOT document for each rule. Do not copy the content of the SSOT.
+2. Keep the two rules with `alwaysApply: true` short. Put details in a rule with `globs` or with a `description`.
+3. Start each `globs` pattern with `**/`. The workspace has many roots.
+4. Use the disk path in a rule. Do not use the playbook name of a repository (see `00-workspace-index`).
+
+## Update the rules when the workspace changes
+
+| Change | Rule to update |
+| ------ | -------------- |
+| A repository is added, removed, or moved | `00-workspace-index.mdc` (tables "Directories" and "Playbook name -> disk path") |
+| A new type of task appears | `00-workspace-index.mdc` (table "Tasks") |
+| An ADR is added or replaced | `adr-topics.mdc` |
+| A playbook document is moved or renamed | each rule with a link to it |
+| A repository gets its own structure document | a new rule with `globs` for the repository |
+
+## Language: ASD-STE100 Simplified Technical English
+
+1. Use only approved STE words. Use each word only with its approved definition. For example: `use`, `make sure`, `find`, `write`, `change`, `read`.
+2. Do not use words that STE does not approve. For example: `ensure`, `utilize`, `leverage`.
+3. You can use technical names (`ADR`, `capability`, `OpenAPI`, `SSOT`, `CODEOWNER`) and technical verbs (`merge`, `commit`, `clone`).
+4. Write a maximum of 20 words in a procedural sentence. Write a maximum of 25 words in a descriptive sentence.
+5. Write only one instruction in a sentence.
+6. Use the imperative for instructions. Use the active voice. Use simple tenses.
+7. Do not use `-ing` forms, except in technical names.
+8. Do not remove articles. STE does not permit a telegraphic style.
+9. Start a warning with a command. Write the reason in a separate short sentence.
+10. For a glossary term, use the English slug of the term. Put a link to `glossary/terms/<slug>.md`.
+11. In tables, you can use noun phrases.
+
+Keep paths, file names, and IDs (`GOAL-04`, `ADR-26061101`) as they are. Keep section names of Russian documents in Russian.

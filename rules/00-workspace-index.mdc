@@ -1,0 +1,90 @@
+---
+description: Index of the snooping-nomarch workspace. Use it to find the location of each artifact and the documents to read for each type of task.
+alwaysApply: true
+---
+# Workspace index
+
+All paths in the rules are relative to the workspace root. The workspace root is the parent directory of `.cursor/`.
+The SSOT for the repository map is `playbook/workflow/repository-topology.md`.
+This rule gives only navigation. Do not copy rules from the SSOT into this file.
+
+## Directories
+
+Each row is one git repository or one group of repositories. The layer column shows the step on the layer ladder (`playbook/principles/index.md`).
+
+| Path | Remote repository or group | Contents | Layer | Entry file | CODEOWNER |
+| ---- | -------------------------- | -------- | ----- | ---------- | --------- |
+| `.cursor/` | `ai-rules-and-skills` | Cursor rules and skills for agents | outside the ladder | `.cursor/rules/` | - |
+| `glossary/` | `glossary` | Terms of the platform language | outside the ladder | `glossary/index.md` | CTO, DM |
+| `playbook/` | `playbook` | Team rules: principles, commandments, workflow, roles, templates of documents | outside the ladder | `playbook/README.md` | CTO, DM |
+| `documentation/product-intent/` | `documentation/product-intent` | Product intent: goals, drivers, stakeholders, quality attributes, bounded contexts, capabilities | 1 product-intent | `documentation/product-intent/index.md` | PO, CPO |
+| `documentation/architecture/` | `documentation/architecture` | ArchiMate model of the system | 2 architecture | empty | AR |
+| `ADR/` | `ADR` | Architecture Decision log | 2 architecture | `ADR/ADR-*.md`, topic index in `adr-topics` rule | CTO, AR |
+| `documentation/specifications/` | `documentation/specifications` | Monorepo of application specifications: REST (OpenAPI), Kafka messages, frontend | 3 specifications | `playbook/workflow/specifications-structure.md` | SA, review by AR |
+| `app/` | group `app` | Code of microservices and frontend applications | 4 code | empty | UL of the owner unit |
+| `data-schemas/` | group `data-schemas` | Flyway migrations. One repository for each PostgreSQL schema | 4 code | empty | UL of the owner unit |
+| `lib/` | group `libs` | Libraries, SDK, shared plugins. The contract of a library is in its README | 4 code | empty | FL of the function |
+| `templates/dbmigrations/` | `templates/dbmigrations` | Template of a Flyway and jOOQ repository | outside the ladder | `templates/dbmigrations/README.md` | - |
+| `templates/kotlin-microservice/` | `templates/kotlin-microservice` | Template of a Kotlin Spring microservice | outside the ladder | `templates/kotlin-microservice/HELP.md` | - |
+| `deployments/configs/` | `deployments/configs` | Files that Config Server gives to services at start | delivery | empty | DevOps |
+| `deployments/environments/` | `deployments/environments` | Helmfile manifests: the set of services in each environment | delivery | empty | DevOps |
+| `platform/` | group `platform` | Images of platform parts (Keycloak, Config Server), CI/CD, IaC | delivery | empty | DevOps |
+| `tools/workspace-refresh/` | `tools/workspace-refresh` | Script that clones and updates all repositories of the workspace | outside the ladder | `tools/workspace-refresh/readme.md` | - |
+| `vision-strategy.md` | not a repository | Short note about vision, strategy, architecture, and implementation | - | - | - |
+
+"Empty" means that the repository has no files, or that the workspace has no clone of it.
+Do not invent the content of an empty repository. Tell the user that the content is not available.
+If a repository is not in the workspace, run `tools/workspace-refresh/refresh.sh` or ask the user to run it.
+
+## Playbook name -> disk path
+
+The playbook uses some names that are different from the disk paths. Use the disk path.
+
+| Name in the playbook | Disk path |
+| -------------------- | --------- |
+| `application` | `app/` |
+| `libs` | `lib/` |
+| `deployments/config` | `deployments/configs/` |
+| `deployments/deployment-manifests` | `deployments/environments/` |
+| `templates/java-21-microservice` | `templates/kotlin-microservice/` |
+| `documentation/ADR` | `ADR/` |
+| `documentation/glossary` | `glossary/` |
+
+## Tasks
+
+Find the type of the task in the table. Read the documents in the "Read first" column before you change files.
+
+| Task | Read first | Write to |
+| ---- | ---------- | -------- |
+| Add or change a goal, a driver, a stakeholder, a quality attribute, a bounded context, or a capability | `playbook/workflow/change-flow.md`, `playbook/workflow/product-intent-structure.md` | `documentation/product-intent/` |
+| Change the ArchiMate model | `playbook/workflow/delivery-flow.md` (section "Моделирование") | `documentation/architecture/` |
+| Record an architecture decision | `playbook/principles/leveraging-adrs.md`, `playbook/workflow/adr-git-flow.md` | `ADR/` |
+| Add or change a REST contract | `playbook/workflow/specifications-structure.md`, `playbook/principles/contract-first.md`, rule `adr-topics` | `documentation/specifications/microservices/<subsystem>/.../<service>/` |
+| Add or change a Kafka message | `documentation/specifications/messaging/README.md`, `ADR/ADR-26061101-kafka-message-semver-versioning.md` | `documentation/specifications/messaging/<group>/<topic>/` |
+| Add a microservice or a frontend application | `playbook/workflow/change-flow.md` (section "Новый микросервис или frontend-приложение") | specifications first, then a new repository from `templates/` in `app/` |
+| Write code for a service | the specification of the service in `documentation/specifications/`, `playbook/principles/spec-first.md` | `app/` |
+| Add or change a database schema or a migration | `templates/dbmigrations/README.md`, rule `adr-topics` (database) | `data-schemas/<subsystem>/<schema_name>/` |
+| Add or change a library | `playbook/workflow/repository-topology.md` (section `lib`) | `lib/` |
+| Add or change a term | `playbook/workflow/glossary.md` | `glossary/terms/<slug>.md` and `glossary/index.md` |
+| Change a team process or a team rule | `playbook/README.md`, `playbook/workflow/index.md` | `playbook/` |
+| Change the configuration of an environment | `playbook/workflow/dod.md` (section "Среда"), `playbook/principles/twelve-factor.md` | `deployments/` |
+| Change CI/CD, images, or infrastructure | `playbook/workflow/repository-topology.md` (section `platform`) | `platform/` |
+| Add or change a development tool | `playbook/workflow/repository-topology.md` (section "Верхний уровень"), `tools/workspace-refresh/readme.md` as an example | `tools/<tool>/` |
+| Change Cursor rules or skills | rule `rules-maintenance` | `.cursor/` |
+
+## Questions -> sources
+
+| Question | Source |
+| -------- | ------ |
+| Why does the product exist? For whom? | `documentation/product-intent/index.md` |
+| How is the system built? | `documentation/architecture/` |
+| Why did the team make this decision? | `ADR/`, rule `adr-topics` |
+| What must an API or a message do? | `documentation/specifications/` |
+| How does the team work? | `playbook/` |
+| What does a word mean? | `glossary/index.md` |
+| Where is the source of truth for a type of artifact? | `playbook/principles/ssot.md` |
+| Can the team start the next step? | `playbook/workflow/dor.md` |
+| Can the team release the increment? | `playbook/workflow/dod.md` |
+| Who owns a repository? | `playbook/workflow/generic-git-flow.md` (section "CODEOWNERS") |
+| What does a role do? | `playbook/team/roles.md` |
+| What is the full process from a request to production? | `playbook/workflow/process-overview.md` |

@@ -1,0 +1,24 @@
+---
+description: Navigation for the ADR repository (Architecture Decision Records).
+globs: **/ADR/**
+alwaysApply: false
+---
+# ADR
+
+Path: `ADR/`. File name: `ADR-YYMMDDNN-slug.md`. The topic index of all ADRs is in the rule `adr-topics`.
+
+| Topic | SSOT |
+| ----- | ---- |
+| When an ADR is necessary, file name, number `NN`, status, required sections | `playbook/principles/leveraging-adrs.md` |
+| Branches, merge requests, rights of the CODEOWNER, replacement of an ADR | `playbook/workflow/adr-git-flow.md` |
+| Template | `playbook/templates/adr.md` |
+| Terms | `glossary/terms/adr.md`, `glossary/terms/architecture-decision.md`, `glossary/terms/architecture-solution.md` |
+| Format of the discussion | `playbook/workflow/discussion-structure.md` |
+
+Before you write a file, do these checks:
+
+1. Find the highest `NN` for the date in `ADR/`. Add 1 to it.
+2. Do not change the number or the file name after the creation of the file.
+3. To replace an ADR, keep the file. Keep only the title and the status "Заменено" with a link to the new ADR.
+4. Do not put links to specifications or code. These layers are lower.
+5. When you add an ADR, add a row to the rule `.cursor/rules/adr-topics.mdc`.

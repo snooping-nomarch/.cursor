@@ -1,0 +1,25 @@
+---
+description: Rules that apply to all tasks in the snooping-nomarch workspace. Each rule has a link to its SSOT.
+alwaysApply: true
+---
+# Invariants
+
+Obey these rules in each task. Read the SSOT document when you must know the details.
+If a request from the user is in conflict with a rule, tell the user about the conflict before you do the work.
+
+| Rule | SSOT |
+| ---- | ---- |
+| Do the work from the top of the layer ladder to the bottom: product-intent, architecture (and ADR), specifications, code. | `playbook/workflow/change-flow.md` |
+| Do not write code before the specification. Do not change the specification to agree with code. | `playbook/workflow/change-flow.md` (section "Правило «не назад»") |
+| Put a link only to an artifact on the same layer or on a higher layer. Do not put a link to a lower layer. | `playbook/principles/upward-references.md` |
+| Do not put a Jira key or other task tracker key in a document, a commit message, or a branch name. | `playbook/principles/upward-references.md` (rule 9) |
+| Each type of artifact has one source of truth. Put a link to it. Do not copy its content. | `playbook/principles/ssot.md` |
+| Define a term only in `glossary/`. In other documents, put a link to the term. | `playbook/workflow/glossary.md` |
+| Use correct English words for all names in code, configuration, and schemas. Obey the notation table. | `playbook/principles/naming-and-notation.md` |
+| Use the branch name `feature/<slug>`. Open the merge request as a draft. | `playbook/workflow/generic-git-flow.md` |
+| Make a new document from its template. Do not copy a different document. | `playbook/templates/index.md` |
+| Make a new repository from a template in `templates/`. Do not copy a different repository. | `playbook/workflow/repository-topology.md` (section `templates`) |
+| When you add or remove an artifact, update the `index.md` of the parent directory in the same change. | `playbook/workflow/product-intent-structure.md`, `playbook/workflow/specifications-structure.md` |
+| Keep the backward compatibility of an application contract. Agree each incompatible change with the consumers. | `playbook/commandments/backward-compatibility.md`, `playbook/workflow/dod.md` |
+
+Write the text of documents in the language of the target repository. Most documents in this workspace are in Russian.

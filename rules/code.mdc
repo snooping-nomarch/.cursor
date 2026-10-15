@@ -1,0 +1,29 @@
+---
+description: Navigation for application code and libraries (app/, lib/, and the microservice template).
+globs: **/app/**, **/lib/**, **/templates/kotlin-microservice/**
+alwaysApply: false
+---
+# Code: app and lib
+
+Paths: `app/` (playbook name `application`), `lib/` (playbook name `libs`), template `templates/kotlin-microservice/` (playbook name `java-21-microservice`).
+
+| Topic | SSOT |
+| ----- | ---- |
+| The contract and the algorithm of a service | `documentation/specifications/` (structure: `playbook/workflow/specifications-structure.md`) |
+| Specification before code, contract before implementation | `playbook/principles/spec-first.md`, `playbook/principles/contract-first.md` |
+| Twelve-factor requirements | `playbook/principles/twelve-factor.md` |
+| Names and notation | `playbook/principles/naming-and-notation.md` |
+| Kafka consumer and producer from generated code | `documentation/specifications/messaging/README.md` (sections "Kafka consumer в сервисе", "Kafka producer в сервисе") |
+| Platform decisions for REST, database, Kafka, codegen, calls between services | rule `adr-topics` |
+| Hierarchy of groups in `app/` and `lib/` | `playbook/workflow/repository-topology.md` (sections `app`, `lib`) |
+| Steps for a new service | `playbook/workflow/change-flow.md` (section "Новый микросервис или frontend-приложение") |
+| Code review and automatic gates | `playbook/workflow/generic-git-flow.md`, `playbook/workflow/delivery-flow.md` |
+| Done criteria | `playbook/workflow/dod.md` (sections "Код", "Автоматические ворота", "Согласованность с верхними ступенями") |
+
+Before you write code, do these checks:
+
+1. Find the specification of the service. If it does not exist, stop and tell the user.
+2. If the code and the specification do not agree, tell the user. Do not change the specification to agree with the code.
+3. Put database migrations in `data-schemas/`, not in `app/`.
+4. Write the contract of a library in the README of the library. Do not put it in `documentation/specifications/`.
+5. Put configuration that is different between environments in the environment, not in code.

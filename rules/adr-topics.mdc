@@ -1,0 +1,21 @@
+---
+description: Use this rule when you write or change a REST API, a database schema, a Kafka message, codegen configuration, or a call between services. It gives the list of accepted ADRs by topic.
+alwaysApply: false
+---
+# ADR topic index
+
+Find the topic of the task. Read each ADR for the topic before you write a specification or code.
+This index gives only the subject of each ADR. The decision is in the ADR file.
+
+| Topic | ADR file | Subject |
+| ----- | -------- | ------- |
+| REST | `ADR/ADR-26053103-rest-endpoints.md` | Names of REST endpoints |
+| REST | `ADR/ADR-26061701-rest-crud-platform-conventions.md` | CRUD conventions: HTTP codes, JSON and database field names, pagination, errors |
+| REST | `ADR/ADR-26061501-rest-timestamp-range-query-filters.md` | Filters by a date and time range in list requests |
+| REST | `ADR/ADR-26061702-rest-record-validity-and-archival.md` | Archival and calendar validity of records |
+| REST | `ADR/ADR-26062101-rest-title-map-batch.md` | Batch `title-map` endpoint for titles by UUID |
+| Database | `ADR/ADR-26060701-soft-delete-deleted-at.md` | Soft deletion with `deleted_at` in all CRUD services |
+| Database | `ADR/ADR-26061801-database-foreign-keys-no-action.md` | Foreign keys in one schema, `ON DELETE NO ACTION` |
+| Kafka | `ADR/ADR-26061101-kafka-message-semver-versioning.md` | SemVer versions of Kafka messages |
+| Codegen | `ADR/ADR-26062405-openapi-codegen-sidecar-shared-models.md` | Sidecar configuration for shared polymorphic OpenAPI models |
+| Calls between services | `ADR/ADR-26060901-service-discovery-simple.md` | Service discovery for REST calls to other services |

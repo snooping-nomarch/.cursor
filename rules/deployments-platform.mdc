@@ -1,0 +1,23 @@
+---
+description: Navigation for environment configuration (deployments/) and DevOps repositories (platform/).
+globs: **/deployments/**, **/platform/**
+alwaysApply: false
+---
+# deployments and platform
+
+| Path | Playbook name | Contents |
+| ---- | ------------- | -------- |
+| `deployments/configs/` | `config` | Files that Config Server gives to services at start |
+| `deployments/environments/` | `deployment-manifests` | Helmfile manifests: the set of services in each environment |
+| `platform/` | `platform` | Images of Keycloak and Config Server, `ci-cd`, `terraform`, `ansible` |
+
+| Topic | SSOT |
+| ----- | ---- |
+| Purpose of each repository | `playbook/workflow/repository-topology.md` (sections `deployments`, `platform`) |
+| Delivery to environments and roles | `playbook/workflow/delivery-flow.md` (section "Поставка") |
+| Configuration in the environment, not in code | `playbook/principles/twelve-factor.md` |
+| Notation of configuration keys (kebab-case) | `playbook/principles/naming-and-notation.md` |
+| Done criteria for environments | `playbook/workflow/dod.md` (section "Среда") |
+| Service discovery and service IDs | `ADR/ADR-26060901-service-discovery-simple.md` |
+
+The CODEOWNER of `deployments/` is DevOps.

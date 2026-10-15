@@ -1,0 +1,25 @@
+---
+description: Navigation for PostgreSQL schema repositories (Flyway migrations, jOOQ) and the dbmigrations template.
+globs: **/data-schemas/**, **/templates/dbmigrations/**
+alwaysApply: false
+---
+# data-schemas
+
+Path: `data-schemas/<subsystem>/<schema_name>/`. Template: `templates/dbmigrations/`.
+
+| Topic | SSOT |
+| ----- | ---- |
+| Groups by subsystem, one repository for each schema, repository name | `playbook/workflow/repository-topology.md` (section `data-schemas`) |
+| Build of a schema repository, Gradle plugins, Flyway and jOOQ commands | `templates/dbmigrations/README.md` |
+| Soft deletion with `deleted_at` | `ADR/ADR-26060701-soft-delete-deleted-at.md` |
+| Foreign keys and `ON DELETE NO ACTION` | `ADR/ADR-26061801-database-foreign-keys-no-action.md` |
+| Archival and validity of records | `ADR/ADR-26061702-rest-record-validity-and-archival.md` |
+| Notation in SQL | `playbook/principles/naming-and-notation.md` |
+| Done criteria for data | `playbook/workflow/dod.md` (section "Данные") |
+
+Before you write a migration, do these checks:
+
+1. Add a new migration file. Do not change a migration that is already applied.
+2. Keep the schema backward compatible: the old and the new version of the service must work on it (expand and contract).
+3. Do not make a foreign key to a table in the schema of a different subsystem.
+4. The template README and `repository-topology.md` do not agree about the repository name. Use `playbook/workflow/repository-topology.md`: the repository name is the schema name.

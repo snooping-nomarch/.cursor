@@ -1,0 +1,25 @@
+---
+description: Navigation for the playbook repository (principles, commandments, workflow, team, templates of documents).
+globs: **/playbook/**
+alwaysApply: false
+---
+# playbook
+
+Path: `playbook/`. Entry file: `playbook/README.md`.
+
+| Directory | Contents | Index |
+| --------- | -------- | ----- |
+| `playbook/principles/` | Principles and the layer ladder | `playbook/principles/index.md` |
+| `playbook/commandments/` | Commandments about the quality of code and documents | `playbook/commandments/index.md` |
+| `playbook/workflow/` | Processes, gates (DoR, DoD), git flow, structure of repositories | `playbook/workflow/index.md` |
+| `playbook/team/` | Roles, allocation, routes for new team members | `playbook/team/index.md` |
+| `playbook/templates/` | Templates of ADR, capability, bounded context readme, glossary term | `playbook/templates/index.md` |
+
+Before you write a file, do these checks:
+
+1. The playbook is outside the layer ladder. It can have links to all layers.
+2. Do not define a term in the playbook. Put a link to `glossary/`.
+3. Do not describe the content of product intent, ADRs, or specifications. Describe only the rules and the structure.
+4. Do not add a list of "related documents" without a reason. Put a link only where the text mentions the document.
+5. Get a review and challenge for the change: `playbook/workflow/discussion-structure.md`. Owners are CTO and DM.
+6. If you move or rename a document, change the links to it in `.cursor/rules/`.
