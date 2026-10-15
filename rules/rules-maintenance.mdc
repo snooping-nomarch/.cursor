@@ -1,11 +1,12 @@
 ---
-description: Use this rule when you write or change a Cursor rule or skill in the .cursor repository.
-globs: **/.cursor/rules/**, **/rules/*.mdc
+description: Use this rule when you write or change a Cursor rule or a Cursor skill in the .cursor repository.
+globs: **/.cursor/rules/**, **/rules/*.mdc, **/.cursor/skills/**, **/skills/**/SKILL.md
 alwaysApply: false
 ---
-# Maintenance of the rules
+# Maintenance of the rules and skills
 
 The rules in `.cursor/rules/` are an index. They tell an agent where to look and when.
+The skills in `.cursor/skills/` give procedures for specific tasks.
 
 ## Content
 
@@ -18,24 +19,14 @@ The rules in `.cursor/rules/` are an index. They tell an agent where to look and
 
 | Change | Rule to update |
 | ------ | -------------- |
-| A repository is added, removed, or moved | `00-workspace-index.mdc` (tables "Directories" and "Playbook name -> disk path") |
-| A new type of task appears | `00-workspace-index.mdc` (table "Tasks") |
-| An ADR is added or replaced | `adr-topics.mdc` |
-| A playbook document is moved or renamed | each rule with a link to it |
-| A repository gets its own structure document | a new rule with `globs` for the repository |
+| New, removed, or moved repository | `00-workspace-index.mdc` (tables "Directories" and "Playbook name -> disk path") |
+| New type of task | `00-workspace-index.mdc` (table "Tasks") |
+| New or replaced ADR | `adr-topics.mdc` |
+| Moved or renamed playbook document | each rule with a link to the document |
+| New structure document for a repository | a new rule with `globs` for the repository |
+| New skill for navigation or for a type of task | `00-workspace-index.mdc` (table "Tasks") |
 
-## Language: ASD-STE100 Simplified Technical English
+## Language
 
-1. Use only approved STE words. Use each word only with its approved definition. For example: `use`, `make sure`, `find`, `write`, `change`, `read`.
-2. Do not use words that STE does not approve. For example: `ensure`, `utilize`, `leverage`.
-3. You can use technical names (`ADR`, `capability`, `OpenAPI`, `SSOT`, `CODEOWNER`) and technical verbs (`merge`, `commit`, `clone`).
-4. Write a maximum of 20 words in a procedural sentence. Write a maximum of 25 words in a descriptive sentence.
-5. Write only one instruction in a sentence.
-6. Use the imperative for instructions. Use the active voice. Use simple tenses.
-7. Do not use `-ing` forms, except in technical names.
-8. Do not remove articles. STE does not permit a telegraphic style.
-9. Start a warning with a command. Write the reason in a separate short sentence.
-10. For a glossary term, use the English slug of the term. Put a link to `glossary/terms/<slug>.md`.
-11. In tables, you can use noun phrases.
-
-Keep paths, file names, and IDs (`GOAL-04`, `ADR-26061101`) as they are. Keep section names of Russian documents in Russian.
+Write all rules and skills in ASD-STE100. The norms and the self-check procedure are in `.cursor/skills/ste-writing/SKILL.md`.
+Before you commit, run `bash .cursor/skills/ste-writing/scripts/check-ste.sh` on each file that you changed.

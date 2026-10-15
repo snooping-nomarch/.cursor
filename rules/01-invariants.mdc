@@ -20,6 +20,7 @@ If a request from the user is in conflict with a rule, tell the user about the c
 | Make a new document from its template. Do not copy a different document. | `playbook/templates/index.md` |
 | Make a new repository from a template in `templates/`. Do not copy a different repository. | `playbook/workflow/repository-topology.md` (section `templates`) |
 | When you add or remove an artifact, update the `index.md` of the parent directory in the same change. | `playbook/workflow/product-intent-structure.md`, `playbook/workflow/specifications-structure.md` |
+| Write each Cursor rule and skill in ASD-STE100. Before you write or change one, read the skill `ste-writing`. | `.cursor/skills/ste-writing/SKILL.md` |
 | Keep the backward compatibility of an application contract. Agree each incompatible change with the consumers. | `playbook/commandments/backward-compatibility.md`, `playbook/workflow/dod.md` |
 
 Write the text of documents in the language of the target repository. Most documents in this workspace are in Russian.

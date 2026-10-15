@@ -14,7 +14,7 @@ Each row is one git repository or one group of repositories. The layer column sh
 
 | Path | Remote repository or group | Contents | Layer | Entry file | CODEOWNER |
 | ---- | -------------------------- | -------- | ----- | ---------- | --------- |
-| `.cursor/` | `ai-rules-and-skills` | Cursor rules and skills for agents | outside the ladder | `.cursor/rules/` | - |
+| `.cursor/` | `ai-rules-and-skills` | Cursor rules and skills for agents | outside the ladder | `.cursor/rules/`, `.cursor/skills/` | - |
 | `glossary/` | `glossary` | Terms of the platform language | outside the ladder | `glossary/index.md` | CTO, DM |
 | `playbook/` | `playbook` | Team rules: principles, commandments, workflow, roles, templates of documents | outside the ladder | `playbook/README.md` | CTO, DM |
 | `documentation/product-intent/` | `documentation/product-intent` | Product intent: goals, drivers, stakeholders, quality attributes, bounded contexts, capabilities | 1 product-intent | `documentation/product-intent/index.md` | PO, CPO |
@@ -70,7 +70,7 @@ Find the type of the task in the table. Read the documents in the "Read first" c
 | Change the configuration of an environment | `playbook/workflow/dod.md` (section "Среда"), `playbook/principles/twelve-factor.md` | `deployments/` |
 | Change CI/CD, images, or infrastructure | `playbook/workflow/repository-topology.md` (section `platform`) | `platform/` |
 | Add or change a development tool | `playbook/workflow/repository-topology.md` (section "Верхний уровень"), `tools/workspace-refresh/readme.md` as an example | `tools/<tool>/` |
-| Change Cursor rules or skills | rule `rules-maintenance` | `.cursor/` |
+| Change Cursor rules or skills | rule `rules-maintenance`, skill `ste-writing` (`.cursor/skills/ste-writing/SKILL.md`) | `.cursor/` |
 
 ## Questions -> sources
 
