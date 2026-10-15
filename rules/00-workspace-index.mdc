@@ -59,8 +59,8 @@ Find the type of the task in the table. Read the documents in the "Read first" c
 | Add or change a goal, a driver, a stakeholder, a quality attribute, a bounded context, or a capability | `playbook/workflow/change-flow.md`, `playbook/workflow/product-intent-structure.md` | `documentation/product-intent/` |
 | Change the ArchiMate model | `playbook/workflow/delivery-flow.md` (section "Моделирование") | `documentation/architecture/` |
 | Record an architecture decision | `playbook/principles/leveraging-adrs.md`, `playbook/workflow/adr-git-flow.md` | `ADR/` |
-| Add or change a REST contract | `playbook/workflow/specifications-structure.md`, `playbook/principles/contract-first.md`, rule `adr-topics` | `documentation/specifications/microservices/<subsystem>/.../<service>/` |
-| Add or change a Kafka message | `documentation/specifications/messaging/README.md`, `ADR/ADR-26061101-kafka-message-semver-versioning.md` | `documentation/specifications/messaging/<group>/<topic>/` |
+| Add or change a REST contract | `playbook/workflow/specifications-structure.md`, `playbook/principles/contract-first.md`, rule `adr-topics`, skill `write-specification` | `documentation/specifications/microservices/<subsystem>/.../<service>/` |
+| Add or change a Kafka message | `documentation/specifications/messaging/README.md`, `ADR/ADR-26061101-kafka-message-semver-versioning.md`, skill `write-specification` | `documentation/specifications/messaging/<group>/<topic>/` |
 | Add a microservice or a frontend application | `playbook/workflow/change-flow.md` (section "Новый микросервис или frontend-приложение") | specifications first, then a new repository from `templates/` in `app/` |
 | Write code for a service | the specification of the service in `documentation/specifications/`, `playbook/principles/spec-first.md` | `app/` |
 | Add or change a database schema or a migration | `templates/dbmigrations/README.md`, rule `adr-topics` (database) | `data-schemas/<subsystem>/<schema_name>/` |

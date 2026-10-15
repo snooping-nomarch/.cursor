@@ -17,6 +17,7 @@ Path: `documentation/specifications/`. The repository has no root README. The st
 | Platform decisions for REST, database, Kafka, codegen | rule `adr-topics` |
 | Notation of fields, types, and enum values | `playbook/principles/naming-and-notation.md` |
 | Owners and review | `playbook/workflow/generic-git-flow.md` (SA; AR must review) |
+| Format of service specifications: Markdown, OpenAPI, Kafka | skill `write-specification` (`.cursor/skills/write-specification/SKILL.md`) |
 
 Before you write a file, do these checks:
 
